@@ -1,5 +1,5 @@
-# image2tag_training_test
-hey, this is just a way to store and help improve a training pipeline ive been piecing together from documentation and other code i find around the internet, in an attempt to train a decent model using a 3050ti 4GB card. Which as of 7/19/25 is the only proper GPU i have to be able to train with.
+# image2tag_training_test:efficientnet_b0
+This is where models trained using efficientnet-B0, B0 is the smallest size of efficientnet, but also has the downside of being more inaccurate. The main upside is im able to train it on ~8000 images (with 80-20 split for validation) in ~8 mins and get fairly good training results at epoch 20 (using .DEFAULT for image transforms). [Here]([https://docs.pytorch.org/vision/main/models.html](https://docs.pytorch.org/vision/main/models.html#table-of-all-available-classification-weights)) is the list of avalible models that i could use for this, this table also gives accuracy and how much procssing power (GFLOPS) it took to run the model with the weights it was given.
 
-# Wheres the code?:
-Trained model files and code for them using different base models will be in different branches, this main branch is just used as a hub to store the other branches so im not making a new repository for each and so they are all sorted.
+# How to run the trained models provided:
+To run a model the script (tagger.py), the model (file with the .pth extension), and the tag_to_idx_###tags_name.json (### is replaced by a number, name is replaced with what ever name the trained model is given), all three of these need to be in the same directory, if you already have python installed then run pip -r ./requirements.txt, or if your using linux you can use [VEM](https://github.com/viper968/VEM) and choose option 1. After finishing those steps run the tagger.py in a terminal followed by --help to get the command line options.
